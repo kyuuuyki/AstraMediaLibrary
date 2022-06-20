@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21179.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21169.4"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rMF-wS-NvA" customClass="WidgetCollectionViewCell" customModule="AstraMediaLibrary">
+            <rect key="frame" x="0.0" y="0.0" width="172" height="152"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="exF-DX-HND">
+                <rect key="frame" x="0.0" y="0.0" width="172" height="152"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZWF-ds-Bcr">
+                        <rect key="frame" x="34" y="0.0" width="104" height="104"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ZWF-ds-Bcr" secondAttribute="height" id="cDU-Nc-P1W"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z35-ko-dL4">
+                        <rect key="frame" x="0.0" y="112" width="172" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyy-yV-4uh">
+                                <rect key="frame" x="0.0" y="0.0" width="172" height="41"/>
+                                <string key="text">Title
+Label</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Jgq-wY-0u8"/>
+                            <constraint firstItem="Qyy-yV-4uh" firstAttribute="leading" secondItem="z35-ko-dL4" secondAttribute="leading" id="ZIZ-du-5gv"/>
+                            <constraint firstItem="Qyy-yV-4uh" firstAttribute="top" secondItem="z35-ko-dL4" secondAttribute="top" id="qNY-5r-vkr"/>
+                            <constraint firstAttribute="trailing" secondItem="Qyy-yV-4uh" secondAttribute="trailing" id="vAk-RM-YFA"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ZWF-ds-Bcr" firstAttribute="top" secondItem="exF-DX-HND" secondAttribute="top" id="50Z-lU-Rbi"/>
+                    <constraint firstItem="ZWF-ds-Bcr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="exF-DX-HND" secondAttribute="leading" id="CKx-vG-4CW"/>
+                    <constraint firstAttribute="trailing" secondItem="z35-ko-dL4" secondAttribute="trailing" id="Phu-S4-moa"/>
+                    <constraint firstAttribute="bottom" secondItem="z35-ko-dL4" secondAttribute="bottom" id="RHa-lb-SLL"/>
+                    <constraint firstItem="z35-ko-dL4" firstAttribute="leading" secondItem="exF-DX-HND" secondAttribute="leading" id="fJq-NH-d14"/>
+                    <constraint firstItem="z35-ko-dL4" firstAttribute="top" secondItem="ZWF-ds-Bcr" secondAttribute="bottom" constant="8" symbolic="YES" id="l7R-xg-AOK"/>
+                    <constraint firstItem="ZWF-ds-Bcr" firstAttribute="centerX" secondItem="exF-DX-HND" secondAttribute="centerX" id="vNO-Z1-oxK"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="172" height="152"/>
+            <connections>
+                <outlet property="cellImageView" destination="ZWF-ds-Bcr" id="fPN-uU-il5"/>
+                <outlet property="cellTitleLabel" destination="Qyy-yV-4uh" id="iuK-KC-crN"/>
+            </connections>
+            <point key="canvasLocation" x="-157.97101449275362" y="-4.0178571428571423"/>
+        </collectionViewCell>
+    </objects>
+</document>

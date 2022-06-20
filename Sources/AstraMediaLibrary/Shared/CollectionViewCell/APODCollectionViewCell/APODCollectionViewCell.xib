@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21179.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21169.4"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="LHr-4q-c3r" customClass="APODCollectionViewCell" customModule="AstraMediaLibrary">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tEL-3t-nBw">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dc6-xi-6vq">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nasa-logo" translatesAutoresizingMaskIntoConstraints="NO" id="NMt-Fe-Mda">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
+                            </imageView>
+                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aah-QF-xLi">
+                                <rect key="frame" x="-66.5" y="0.0" width="533" height="300"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Aah-QF-xLi" secondAttribute="height" multiplier="16:9" id="xmV-Wq-MWt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="NMt-Fe-Mda" secondAttribute="trailing" id="342-Vc-ZM3"/>
+                            <constraint firstAttribute="bottom" secondItem="NMt-Fe-Mda" secondAttribute="bottom" id="57C-AE-Zv4"/>
+                            <constraint firstItem="NMt-Fe-Mda" firstAttribute="leading" secondItem="dc6-xi-6vq" secondAttribute="leading" id="6Ux-sM-czi"/>
+                            <constraint firstAttribute="bottom" secondItem="Aah-QF-xLi" secondAttribute="bottom" id="6qA-OE-cSo"/>
+                            <constraint firstItem="Aah-QF-xLi" firstAttribute="top" secondItem="dc6-xi-6vq" secondAttribute="top" id="KEy-tG-fOp"/>
+                            <constraint firstItem="NMt-Fe-Mda" firstAttribute="top" secondItem="dc6-xi-6vq" secondAttribute="top" id="qnJ-j9-3Tt"/>
+                            <constraint firstItem="Aah-QF-xLi" firstAttribute="centerX" secondItem="dc6-xi-6vq" secondAttribute="centerX" id="vFG-PO-jeV"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aap-nb-xSl">
+                        <rect key="frame" x="16" y="224" width="262" height="60"/>
+                        <string key="text">ASTRONOMY
+PICTURE OF THE DAY</string>
+                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kd2-dy-Lpm">
+                        <rect key="frame" x="16" y="200" width="55.5" height="16"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RANDOM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4b-aC-TO5">
+                                <rect key="frame" x="4" y="2" width="47.5" height="12"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="b4b-aC-TO5" firstAttribute="top" secondItem="kd2-dy-Lpm" secondAttribute="top" constant="2" id="WbA-y7-VaW"/>
+                            <constraint firstAttribute="trailing" secondItem="b4b-aC-TO5" secondAttribute="trailing" constant="4" id="fh8-Sj-oxH"/>
+                            <constraint firstAttribute="bottom" secondItem="b4b-aC-TO5" secondAttribute="bottom" constant="2" id="jwL-U8-KcO"/>
+                            <constraint firstItem="b4b-aC-TO5" firstAttribute="leading" secondItem="kd2-dy-Lpm" secondAttribute="leading" constant="4" id="oyo-NR-JtS"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="aap-nb-xSl" firstAttribute="top" secondItem="kd2-dy-Lpm" secondAttribute="bottom" constant="8" id="4tH-9B-y3D"/>
+                    <constraint firstAttribute="bottom" secondItem="aap-nb-xSl" secondAttribute="bottom" constant="16" id="Mum-kf-5gt"/>
+                    <constraint firstAttribute="bottom" secondItem="dc6-xi-6vq" secondAttribute="bottom" id="a7O-EU-IdO"/>
+                    <constraint firstItem="kd2-dy-Lpm" firstAttribute="leading" secondItem="aap-nb-xSl" secondAttribute="leading" id="kXJ-mW-qef"/>
+                    <constraint firstAttribute="trailing" secondItem="dc6-xi-6vq" secondAttribute="trailing" id="kj9-tx-pe4"/>
+                    <constraint firstItem="dc6-xi-6vq" firstAttribute="top" secondItem="tEL-3t-nBw" secondAttribute="top" id="pfg-2H-a05"/>
+                    <constraint firstItem="dc6-xi-6vq" firstAttribute="leading" secondItem="tEL-3t-nBw" secondAttribute="leading" id="syr-6H-OfO"/>
+                    <constraint firstItem="aap-nb-xSl" firstAttribute="leading" secondItem="tEL-3t-nBw" secondAttribute="leading" constant="16" id="v8j-OG-ZbQ"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <connections>
+                <outlet property="cellImageView" destination="NMt-Fe-Mda" id="OhG-2E-tAb"/>
+                <outlet property="cellRandomBadgeContainerView" destination="kd2-dy-Lpm" id="7EN-hD-nX3"/>
+                <outlet property="cellTitleLabel" destination="aap-nb-xSl" id="iPl-XW-qGn"/>
+                <outlet property="cellVideoContainerView" destination="Aah-QF-xLi" id="b54-Of-yrx"/>
+                <outlet property="cellVideoContainerViewTopConstraint" destination="KEy-tG-fOp" id="Jqg-DC-XHO"/>
+                <outlet property="parallaxableConstraint" destination="pfg-2H-a05" id="6Ag-09-mG8"/>
+            </connections>
+            <point key="canvasLocation" x="-300" y="18.75"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="nasa-logo" width="2000" height="2000"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

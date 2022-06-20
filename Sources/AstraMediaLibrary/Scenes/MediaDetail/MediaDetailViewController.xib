@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21179.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21169.4"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MediaDetailViewController" customModule="AstraMediaLibrary">
+            <connections>
+                <outlet property="backButtonContainerView" destination="SPu-nW-xYB" id="Kyi-oJ-oJb"/>
+                <outlet property="collectionView" destination="o9F-Lb-Ti9" id="Mia-h2-GQM"/>
+                <outlet property="view" destination="iN0-l3-epB" id="FNd-Vm-wNh"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7KR-Ay-nA7">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <items>
+                        <navigationItem title="Title" id="x7m-FY-SbY"/>
+                    </items>
+                </navigationBar>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="o9F-Lb-Ti9">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b6M-OJ-eFh">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPu-nW-xYB">
+                    <rect key="frame" x="16" y="50" width="32" height="32"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzv-zX-736">
+                    <rect key="frame" x="16" y="50" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="nzv-zX-736" secondAttribute="height" multiplier="1:1" id="Cxo-ER-uPj"/>
+                        <constraint firstAttribute="height" constant="32" id="jtC-5H-1pO"/>
+                    </constraints>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="14" weight="bold"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="didTapOnBackButton:" destination="-1" eventType="touchUpInside" id="pJI-IT-SaH"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="SPu-nW-xYB" firstAttribute="width" secondItem="nzv-zX-736" secondAttribute="width" id="9fd-tR-QkH"/>
+                <constraint firstItem="nzv-zX-736" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="LIf-im-z1t"/>
+                <constraint firstItem="7KR-Ay-nA7" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="dc8-eM-pJG"/>
+                <constraint firstItem="o9F-Lb-Ti9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="f27-2e-fFH"/>
+                <constraint firstItem="SPu-nW-xYB" firstAttribute="centerX" secondItem="nzv-zX-736" secondAttribute="centerX" id="fHw-DA-2fX"/>
+                <constraint firstItem="o9F-Lb-Ti9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="iYk-Hq-yVF"/>
+                <constraint firstItem="o9F-Lb-Ti9" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="nhv-Oq-HHe"/>
+                <constraint firstItem="7KR-Ay-nA7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="oaw-uC-2gC"/>
+                <constraint firstAttribute="bottom" secondItem="o9F-Lb-Ti9" secondAttribute="bottom" id="q1R-Up-CLO"/>
+                <constraint firstItem="nzv-zX-736" firstAttribute="centerY" secondItem="7KR-Ay-nA7" secondAttribute="centerY" id="r7a-x0-Hgb"/>
+                <constraint firstItem="SPu-nW-xYB" firstAttribute="height" secondItem="nzv-zX-736" secondAttribute="height" id="tIG-QR-4Xk"/>
+                <constraint firstItem="7KR-Ay-nA7" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ueA-dr-Ntv"/>
+                <constraint firstItem="SPu-nW-xYB" firstAttribute="centerY" secondItem="nzv-zX-736" secondAttribute="centerY" id="wYS-fy-Dcc"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="119.86607142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

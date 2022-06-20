@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "astracoremodels",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kyuuuyki/AstraCoreModels.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "e4041c42ec452ca64e5ef95f4b12453dde74a76e"
+      }
+    },
+    {
+      "identity" : "kyugenericextensions",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kyuuuyki/KyuGenericExtensions.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "75ff448ee431f3eb6ae71f4e6866a9e1097eb6b0"
+      }
+    },
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage.git",
+      "state" : {
+        "revision" : "b729cc14f65e1412efc781a4cc46bd7f4720a3ae",
+        "version" : "5.12.6"
+      }
+    }
+  ],
+  "version" : 2
+}
