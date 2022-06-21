@@ -44,6 +44,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C537ED7E2862114B000E4F09 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		C5D266C32860B1D200182E98 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +72,7 @@
 		C5D266CE2860B1D200182E98 /* AstraMediaLibrary-Client */ = {
 			isa = PBXGroup;
 			children = (
+				C537ED7E2862114B000E4F09 /* New Group */,
 				C5D266EA2860B2BA00182E98 /* AppDelegate.swift */,
 				C5D266EB2860B2BA00182E98 /* Assembler */,
 				C5D266E72860B2B900182E98 /* SceneDelegate.swift */,

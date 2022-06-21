@@ -8,10 +8,10 @@ import Foundation
 // MARK: - BUSINESS LOGIC
 protocol MainInteractorProtocol {
 	func getSessionStatus(request: MainModel.SessionStatus.Request)
-	func selectAPOD(request: MainModel.SelectAPOD.Request)
 	func getAstronomyPictureOfTheDay(request: MainModel.AstronomyPictureOfTheDay.Request)
 	func getSuggestedCategoryList(request: MainModel.SuggestedCategoryList.Request)
 	func getRecentMediaList(request: MainModel.RecentMediaList.Request)
+	func selectAPOD(request: MainModel.SelectAPOD.Request)
 	func selectCategory(request: MainModel.SelectCategory.Request)
 	func selectMedia(request: MainModel.SelectMedia.Request)
 }
@@ -70,16 +70,6 @@ extension MainInteractor {
 	}
 }
 
-// MARK: - SELECT APOD
-extension MainInteractor {
-	func selectAPOD(request: MainModel.SelectAPOD.Request) {
-		guard let apodItem = dataStore?.apodItem else { return }
-		let item = APODItem(apodItem: apodItem)
-		let response = MainModel.SelectAPOD.Response(item: item)
-		presenter?.presentSelectAPOD(response: response)
-	}
-}
-
 // MARK: - SUGGESTED CATEGORY LIST
 extension MainInteractor {
 	func getSuggestedCategoryList(request: MainModel.SuggestedCategoryList.Request) {
@@ -89,27 +79,27 @@ extension MainInteractor {
 		worker?.getSuggestedCategoryList(completion: { result in
 			switch result {
 			case .success(let suggestedCategories):
+				let agencies = suggestedCategories.filter({ $0.categoryType != .mission })
 				let missions = suggestedCategories.filter({ $0.categoryType == .mission })
-				let categories = suggestedCategories.filter({ $0.categoryType != .mission })
 				
+				dataStore?.setAgencies(agencies)
 				dataStore?.setMissions(missions)
-				dataStore?.setCategories(categories)
 			case .failure:
+				dataStore?.setAgencies([])
 				dataStore?.setMissions([])
-				dataStore?.setCategories([])
 			}
 			group.leave()
 		})
 		
 		group.notify(queue: .main) {
-			guard let categories = dataStore?.categories,
+			guard let agencies = dataStore?.agencies,
 				  let missions = dataStore?.missions
 			else {
 				return
 			}
 			
 			let response = MainModel.SuggestedCategoryList.Response(
-				categories: categories,
+				agencies: agencies,
 				missions: missions
 			)
 			presenter?.presentSuggestedCategoryList(response: response)
@@ -143,13 +133,23 @@ extension MainInteractor {
 	}
 }
 
+// MARK: - SELECT APOD
+extension MainInteractor {
+	func selectAPOD(request: MainModel.SelectAPOD.Request) {
+		guard let apodItem = dataStore?.apodItem else { return }
+		let item = APODItem(apodItem: apodItem)
+		let response = MainModel.SelectAPOD.Response(item: item)
+		presenter?.presentSelectAPOD(response: response)
+	}
+}
+
 // MARK: - SELECT CATEGORY
 extension MainInteractor {
 	func selectCategory(request: MainModel.SelectCategory.Request) {
-		let category = dataStore?.categories[safe: request.index]
+		let agency = dataStore?.agencies[safe: request.index]
 		let mission = dataStore?.missions[safe: request.index]
 		
-		let selectedCategory = request.isMission ? mission : category
+		let selectedCategory = request.isMission ? mission : agency
 		guard let selectedCategory = selectedCategory else { return }
 		
 		let response = MainModel.SelectCategory.Response(category: selectedCategory)

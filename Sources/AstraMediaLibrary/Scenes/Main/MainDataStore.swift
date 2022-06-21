@@ -11,8 +11,8 @@ protocol MainDataStoreProtocol {
 	var apodItem: MediaLibraryAPODItemProtocol? { get }
 	func setAPODItem(_ apodItem: MediaLibraryAPODItemProtocol?)
 	
-	var categories: [MediaLibraryCategoryProtocol] { get }
-	func setCategories(_ categories: [MediaLibraryCategoryProtocol])
+	var agencies: [MediaLibraryCategoryProtocol] { get }
+	func setAgencies(_ agencies: [MediaLibraryCategoryProtocol])
 	
 	var missions: [MediaLibraryCategoryProtocol] { get }
 	func setMissions(_ missions: [MediaLibraryCategoryProtocol])
@@ -28,9 +28,9 @@ class MainDataStore: MainDataStoreProtocol {
 		self.apodItem = apodItem
 	}
 	
-	var categories: [MediaLibraryCategoryProtocol] = []
-	func setCategories(_ categories: [MediaLibraryCategoryProtocol]) {
-		self.categories = categories
+	var agencies: [MediaLibraryCategoryProtocol] = []
+	func setAgencies(_ agencies: [MediaLibraryCategoryProtocol]) {
+		self.agencies = agencies
 	}
 	
 	var missions: [MediaLibraryCategoryProtocol] = []

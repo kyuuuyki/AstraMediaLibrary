@@ -10,9 +10,9 @@ import UIKit
 protocol MainPresenterProtocol {
 	func presentSessionStatus(response: MainModel.SessionStatus.Response)
 	func presentAstronomyPictureOfTheDay(response: MainModel.AstronomyPictureOfTheDay.Response)
-	func presentSelectAPOD(response: MainModel.SelectAPOD.Response)
 	func presentSuggestedCategoryList(response: MainModel.SuggestedCategoryList.Response)
     func presentRecentMediaList(response: MainModel.RecentMediaList.Response)
+	func presentSelectAPOD(response: MainModel.SelectAPOD.Response)
 	func presentSelectCategory(response: MainModel.SelectCategory.Response)
 	func presentSelectMedia(response: MainModel.SelectMedia.Response)
 }
@@ -38,19 +38,11 @@ extension MainPresenter {
 	}
 }
 
-// MARK: - SELECT APOD
-extension MainPresenter {
-	func presentSelectAPOD(response: MainModel.SelectAPOD.Response) {
-		let viewModel = MainModel.SelectAPOD.ViewModel(item: response.item)
-		viewController?.displaySelectAPOD(viewModel: viewModel)
-	}
-}
-
 // MARK: - SUGGESTED CATEGORY LIST
 extension MainPresenter {
 	func presentSuggestedCategoryList(response: MainModel.SuggestedCategoryList.Response) {
 		let viewModel = MainModel.SuggestedCategoryList.ViewModel(
-			categories: response.categories,
+			agencies: response.agencies,
 			missions: response.missions
 		)
 		viewController?.displaySuggestedCategoryList(viewModel: viewModel)
@@ -63,6 +55,14 @@ extension MainPresenter {
 		let viewModel = MainModel.RecentMediaList.ViewModel(items: response.items)
         viewController?.displayRecentMediaList(viewModel: viewModel)
     }
+}
+
+// MARK: - SELECT APOD
+extension MainPresenter {
+	func presentSelectAPOD(response: MainModel.SelectAPOD.Response) {
+		let viewModel = MainModel.SelectAPOD.ViewModel(item: response.item)
+		viewController?.displaySelectAPOD(viewModel: viewModel)
+	}
 }
 
 // MARK: - SELECT CATEGORY

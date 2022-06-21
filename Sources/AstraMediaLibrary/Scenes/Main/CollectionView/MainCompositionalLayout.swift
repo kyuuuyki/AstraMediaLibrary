@@ -29,7 +29,7 @@ struct MainCompositionalLayout: KSPCollectionViewCompositionalLayoutProtocol {
 			sections.append(MainAPODSection(apodItem: PlaceholderAPODItem()))
 		}
 		
-		if let categories = suggestedCategoryListViewModel?.categories, !categories.isEmpty {
+		if let categories = suggestedCategoryListViewModel?.agencies, !categories.isEmpty {
 			sections.append(MainCategoryListSection(categories: categories))
 		}
 		
@@ -37,10 +37,8 @@ struct MainCompositionalLayout: KSPCollectionViewCompositionalLayoutProtocol {
 			sections.append(MainMissionListSection(missions: missions))
 		}
 		
-		if let items = recentMediaListViewModel?.items {
+		if let items = recentMediaListViewModel?.items, !items.isEmpty {
 			sections.append(MediaListSection(items: items))
-		} else {
-			sections.append(ActivityIndicatorSection(shouldAnimated: true))
 		}
 		
 		self.sections = sections

@@ -7,7 +7,7 @@ import Foundation
 import KyuGenericExtensions
 import UIKit
 
-// MARK: - UICOLLECTIONVIEW DELEGATE, UICOLLECTIONVIEW DATASOURCE
+// MARK: - COLLECTIONVIEW
 extension MainViewController {
 	func configureCollectionView() {
 		collectionView.delegate = self

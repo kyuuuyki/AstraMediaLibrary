@@ -7,7 +7,7 @@ import AstraCoreModels
 import Foundation
 
 enum MainModel {
-	// MARK: - ASTRONOMY PICTURE OF THE DAY
+	// MARK: - SESSION STATUS
 	enum SessionStatus {
 		struct Request {
 		}
@@ -18,20 +18,6 @@ enum MainModel {
 		
 		struct ViewModel {
 			let shouldDisplaySignIn: Bool
-		}
-	}
-	
-	// MARK: - SELECT APOD
-	enum SelectAPOD {
-		struct Request {
-		}
-		
-		struct Response {
-			let item: MediaLibraryItemProtocol
-		}
-		
-		struct ViewModel {
-			let item: MediaLibraryItemProtocol
 		}
 	}
 	
@@ -55,12 +41,12 @@ enum MainModel {
 		}
 		
 		struct Response {
-			let categories: [MediaLibraryCategoryProtocol]
+			let agencies: [MediaLibraryCategoryProtocol]
 			let missions: [MediaLibraryCategoryProtocol]
 		}
 		
 		struct ViewModel {
-			let categories: [MediaLibraryCategoryProtocol]
+			let agencies: [MediaLibraryCategoryProtocol]
 			let missions: [MediaLibraryCategoryProtocol]
 		}
 	}
@@ -76,6 +62,20 @@ enum MainModel {
 		
 		struct ViewModel {
 			let items: [MediaLibraryItemProtocol]
+		}
+	}
+	
+	// MARK: - SELECT APOD
+	enum SelectAPOD {
+		struct Request {
+		}
+		
+		struct Response {
+			let item: MediaLibraryItemProtocol
+		}
+		
+		struct ViewModel {
+			let item: MediaLibraryItemProtocol
 		}
 	}
 	

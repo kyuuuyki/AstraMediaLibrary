@@ -12,9 +12,9 @@ import UIKit
 protocol MainViewControllerProtocol: AnyObject {
 	func displaySessionStatus(viewModel: MainModel.SessionStatus.ViewModel)
 	func displayAstronomyPictureOfTheDay(viewModel: MainModel.AstronomyPictureOfTheDay.ViewModel)
-	func displaySelectAPOD(viewModel: MainModel.SelectAPOD.ViewModel)
 	func displaySuggestedCategoryList(viewModel: MainModel.SuggestedCategoryList.ViewModel)
 	func displayRecentMediaList(viewModel: MainModel.RecentMediaList.ViewModel)
+	func displaySelectAPOD(viewModel: MainModel.SelectAPOD.ViewModel)
 	func displaySelectCategory(viewModel: MainModel.SelectCategory.ViewModel)
 	func displaySelectMedia(viewModel: MainModel.SelectMedia.ViewModel)
 }
@@ -74,7 +74,7 @@ class MainViewController:
 	
 	// MARK: ACTIONS
 	@IBAction private func didTapOnMenuButton(_ sender: Any) {
-		router?.navigateToMenu()
+		didTapOnMenuButton()
 	}
 }
 
@@ -109,18 +109,6 @@ extension MainViewController {
 	}
 }
 
-// MARK: - SELECT APOD
-extension MainViewController {
-	func selectAPOD() {
-		let request = MainModel.SelectAPOD.Request()
-		interactor?.selectAPOD(request: request)
-	}
-	
-	func displaySelectAPOD(viewModel: MainModel.SelectAPOD.ViewModel) {
-		router?.navigateToMediaDetailView(item: viewModel.item)
-	}
-}
-
 // MARK: - SUGGESTED CATEGORY LIST
 extension MainViewController {
 	func getSuggestedCategoryList() {
@@ -142,6 +130,18 @@ extension MainViewController {
 	
 	func displayRecentMediaList(viewModel: MainModel.RecentMediaList.ViewModel) {
 		recentMediaListViewModel = viewModel
+	}
+}
+
+// MARK: - SELECT APOD
+extension MainViewController {
+	func selectAPOD() {
+		let request = MainModel.SelectAPOD.Request()
+		interactor?.selectAPOD(request: request)
+	}
+	
+	func displaySelectAPOD(viewModel: MainModel.SelectAPOD.ViewModel) {
+		router?.navigateToMediaDetailView(item: viewModel.item)
 	}
 }
 
@@ -170,7 +170,7 @@ extension MainViewController {
 }
 
 // MARK: - PRIVATE EXTENSION
-private extension MainViewController {
+extension MainViewController {
 	// MARK: INIT
 	func initMainViewController() {
 		title = "Home"
@@ -189,5 +189,9 @@ private extension MainViewController {
 		getAstronomyPictureOfTheDay()
 		getSuggestedCategoryList()
 		getRecentMediaList()
+	}
+	
+	func didTapOnMenuButton() {
+		router?.navigateToMenu()
 	}
 }

@@ -37,7 +37,9 @@ let package = Package(
 		),
 		.testTarget(
 			name: "AstraMediaLibraryTests",
-			dependencies: ["AstraMediaLibrary"]
+			dependencies: [
+				"AstraMediaLibrary",
+			]
 		),
 	]
 )

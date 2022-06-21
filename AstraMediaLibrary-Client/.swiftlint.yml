@@ -1,5 +1,6 @@
 included:
   - ../Sources
+  - ../Tests
   - AstraMediaLibrary-Client
 
 trailing_whitespace:

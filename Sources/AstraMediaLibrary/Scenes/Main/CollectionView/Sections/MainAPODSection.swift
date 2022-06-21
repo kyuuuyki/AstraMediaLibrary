@@ -79,7 +79,7 @@ struct PlaceholderAPODItem: MediaLibraryAPODItemProtocol {
 	var mediaType: MediaLibraryMediaType = .image
 }
 
-struct APODItem: MediaLibraryItemProtocol {
+struct APODItem: MediaLibraryItemProtocol, Equatable {
 	let id: String
 	let title: String
 	let description: String
