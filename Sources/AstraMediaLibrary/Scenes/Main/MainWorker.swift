@@ -11,6 +11,12 @@ import Foundation
 // MARK: - WORKER LOGIC
 protocol MainWorkerProtocol {
 	func getSessionStatus(completion: @escaping (AuthenticationSessionStatusType) -> Void)
+	func getUserSecret(
+		by userID: String,
+		completion: @escaping (
+			Result<UserSecretProtocol, Error>
+		) -> Void
+	)
 	func getAstronomyPictureOfTheDay(
 		completion: @escaping (Result<MediaLibraryAPODItemProtocol, Error>) -> Void
 	)
@@ -26,18 +32,30 @@ protocol MainWorkerProtocol {
 struct MainWorker: MainWorkerProtocol {
 	let authenticationService: AuthenticationServiceProtocol
 	let mediaLibraryService: MediaLibraryServiceProtocol
+	let userService: UserServiceProtocol
+	
 	let supportedAPODMediaType: [MediaLibraryMediaType] = [.image]
 	
 	// MARK: GET - SESSION STATUS
 	func getSessionStatus(completion: @escaping (AuthenticationSessionStatusType) -> Void) {
-		authenticationService.sessionStatus(completion: completion)
+		authenticationService.getSessionStatus(completion: completion)
+	}
+	
+	// MARK: GET - USER SECRET
+	func getUserSecret(
+		by userID: String,
+		completion: @escaping (
+			Result<UserSecretProtocol, Error>
+		) -> Void
+	) {
+		userService.getUserSecret(by: userID, completion: completion)
 	}
 	
 	// MARK: GET - ASTRONOMY PICTURE OF THE DAY
 	func getAstronomyPictureOfTheDay(
 		completion: @escaping (Result<MediaLibraryAPODItemProtocol, Error>) -> Void
 	) {
-		mediaLibraryService.astromonyPictureOfTheDay(date: Date()) { byDateResult in
+		mediaLibraryService.getAPOD(date: Date()) { byDateResult in
 			switch byDateResult {
 			case .success(let apodItem):
 				if let apodItem = apodItem, supportedAPODMediaType.contains(apodItem.mediaType) {
@@ -56,7 +74,7 @@ struct MainWorker: MainWorkerProtocol {
 	func getRandomAstronomyPictureOfTheDay(
 		completion: @escaping (Result<MediaLibraryAPODItemProtocol, Error>) -> Void
 	) {
-		mediaLibraryService.astromonyPictureOfTheDay(count: 10) { byCountResult in
+		mediaLibraryService.getAPODList(count: 10) { byCountResult in
 			switch byCountResult {
 			case .success(let apodItems):
 				if let apodItem = apodItems.first(where: { $0.mediaType == .image }) {
@@ -73,7 +91,7 @@ struct MainWorker: MainWorkerProtocol {
 	func getSuggestedCategoryList(
 		completion: @escaping (Result<[MediaLibraryCategoryProtocol], Error>) -> Void
 	) {
-		mediaLibraryService.suggestedCategories { result in
+		mediaLibraryService.getSuggestedCategoryList { result in
 			switch result {
 			case .success(var categories):
 				let search = MediaLibraryCategory(
@@ -98,7 +116,7 @@ struct MainWorker: MainWorkerProtocol {
 	func getRecentMediaList(
 		completion: @escaping (Result<[MediaLibraryItemProtocol], Error>) -> Void
 	) {
-		mediaLibraryService.recent(completion: completion)
+		mediaLibraryService.getRecentMediaList(completion: completion)
 	}
 }
 

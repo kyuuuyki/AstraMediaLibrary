@@ -13,11 +13,13 @@ enum MainModel {
 		}
 		
 		struct Response {
-			let isSignedIn: Bool
+			let isSignInNeeded: Bool
+			let isSignUpNeeded: Bool
 		}
 		
 		struct ViewModel {
 			let shouldDisplaySignIn: Bool
+			let shouldDisplaySignUp: Bool
 		}
 	}
 	

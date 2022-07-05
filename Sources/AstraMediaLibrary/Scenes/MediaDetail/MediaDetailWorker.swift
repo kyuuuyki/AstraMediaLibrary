@@ -27,7 +27,7 @@ struct MediaDetailWorker: MediaDetailWorkerProtocol {
 		id: String,
 		completion: @escaping (Result<[MediaLibraryAssetItemProtocol], Error>) -> Void
 	) {
-		mediaLibraryService.asset(id: id, completion: completion)
+		mediaLibraryService.getAssetListByMediaID(id: id, completion: completion)
     }
 	
 	func image(imageUrl: URL?, completion: @escaping (Result<UIImage, Error>) -> Void) {

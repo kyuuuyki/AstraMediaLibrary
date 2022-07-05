@@ -27,21 +27,34 @@ struct MainInteractor: MainInteractorProtocol {
 extension MainInteractor {
 	func getSessionStatus(request: MainModel.SessionStatus.Request) {
 		let group = DispatchGroup()
-		var isSignedIn = false
+		var isSignInNeeded = true
+		var isSignUpNeeded = true
 		
 		group.enter()
 		worker?.getSessionStatus(completion: { status in
 			switch status {
-			case .signedIn:
-				isSignedIn = true
+			case .signedIn(let user):
+				isSignInNeeded = false
+				worker?.getUserSecret(by: user.id, completion: { result in
+					switch result {
+					case .success:
+						isSignUpNeeded = false
+					case .failure:
+						isSignUpNeeded = true
+					}
+					group.leave()
+				})
 			case .signedOut:
-				isSignedIn = false
+				isSignInNeeded = true
+				group.leave()
 			}
-			group.leave()
 		})
 		
 		group.notify(queue: .main) {
-			let response = MainModel.SessionStatus.Response(isSignedIn: isSignedIn)
+			let response = MainModel.SessionStatus.Response(
+				isSignInNeeded: isSignInNeeded,
+				isSignUpNeeded: isSignUpNeeded
+			)
 			presenter?.presentSessionStatus(response: response)
 		}
 	}

@@ -25,73 +25,30 @@ public final class Assembler: AssemblerProtocol {
 
 public extension Assembler {
 	func configure(window: UIWindow?) {
-		let authenticationService = AstraCoreAPI.coreAPI().authenticationService()
-		let mediaLibraryService = AstraCoreAPI.coreAPI().mediaLibraryService()
-		let transitionCoordinator = TransitionCoordinator()
-		
-		// MARK: Services
-		container.register(
-			TransitionCoordinatorProtocol.self,
-			name: TransitionCoordinator.moduleName
-		) { _ in
-			return transitionCoordinator
-		}
-		
-		container.register(AuthenticationServiceProtocol.self) { _ in
-			return authenticationService
-		}
-		
-		container.register(MediaLibraryServiceProtocol.self) { _ in
-			return mediaLibraryService
-		}
-		
-		// MARK: Scenes
-		guard let transitionCoordinator = resolver.resolve(
-			TransitionCoordinatorProtocol.self,
-			name: TransitionCoordinator.moduleName
-		) else {
-			return
-		}
-		
-		guard let mediaLibraryService = resolver.resolve(
-			MediaLibraryServiceProtocol.self
-		) else {
-			return
-		}
-		
-		container.register(
-			SceneModuleProtocol.self,
-			name: MainSceneModule.moduleName
-		) { _ in
-			return MainSceneModule(
-				transitionCoordinator: transitionCoordinator,
-				authenticationService: authenticationService,
-				mediaLibraryService: mediaLibraryService
-			)
-		}
-		
-		container.register(
-			SceneModuleProtocol.self,
-			name: MediaListSceneModule.moduleName
-		) { _ in
-			return MediaListSceneModule(
-				transitionCoordinator: transitionCoordinator,
-				mediaLibraryService: mediaLibraryService
-			)
-		}
-		
-		container.register(SceneModuleProtocol.self, name: MediaDetailSceneModule.moduleName) { _ in
-			return MediaDetailSceneModule(
-				transitionCoordinator: transitionCoordinator,
-				mediaLibraryService: mediaLibraryService
-			)
-		}
-		
+		configureServices()
+		configureMediaLibrary()
 		configureRootViewController(window: window)
 	}
 }
 
 private extension Assembler {
+	func configureServices() {
+		container.register(
+			TransitionCoordinatorProtocol.self,
+			name: TransitionCoordinator.moduleName
+		) { _ in
+			return TransitionCoordinator()
+		}
+		
+		container.register(
+			MediaLibraryServiceProtocol.self,
+			name: MediaLibraryService.moduleName
+		) { _ in
+			let apiKey = AstraCoreAPI.coreAPI().userSecret?.dataGovAPIKey ?? "DEMO_KEY"
+			return MediaLibraryService(apiKey: apiKey)
+		}
+	}
+	
 	func configureRootViewController(window: UIWindow?) {
 		let startSceneModule = resolver.resolve(
 			SceneModuleProtocol.self,

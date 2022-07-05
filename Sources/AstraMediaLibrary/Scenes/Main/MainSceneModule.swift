@@ -16,15 +16,18 @@ public struct MainSceneModule: SceneModuleProtocol {
 	private let transitionCoordinator: TransitionCoordinatorProtocol
 	private let authenticationService: AuthenticationServiceProtocol
 	private let mediaLibraryService: MediaLibraryServiceProtocol
+	private let userService: UserServiceProtocol
 	
 	public init(
 		transitionCoordinator: TransitionCoordinatorProtocol,
 		authenticationService: AuthenticationServiceProtocol,
-		mediaLibraryService: MediaLibraryServiceProtocol
+		mediaLibraryService: MediaLibraryServiceProtocol,
+		userService: UserServiceProtocol
 	) {
 		self.transitionCoordinator = transitionCoordinator
 		self.authenticationService = authenticationService
 		self.mediaLibraryService = mediaLibraryService
+		self.userService = userService
 	}
     
 	public func build(with parameters: [String: Any]?) -> UIViewController? {
@@ -33,7 +36,8 @@ public struct MainSceneModule: SceneModuleProtocol {
         let dataStore = MainDataStore()
 		let worker = MainWorker(
 			authenticationService: authenticationService,
-			mediaLibraryService: mediaLibraryService
+			mediaLibraryService: mediaLibraryService,
+			userService: userService
 		)
         let presenter = MainPresenter(viewController: viewController)
         let interactor = MainInteractor(presenter: presenter, worker: worker, dataStore: dataStore)

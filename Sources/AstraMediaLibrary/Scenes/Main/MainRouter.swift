@@ -12,6 +12,7 @@ import UIKit
 protocol MainRouterProtocol {
 	func navigateToMenu()
 	func navigateToSignIn()
+	func navigateToSignUp()
 	func navigateToMediaDetailView(item: MediaLibraryItemProtocol)
 	func navigateToMediaListView(category: MediaLibraryCategoryProtocol)
 }
@@ -38,6 +39,14 @@ extension MainRouter {
 	func navigateToSignIn() {
 		performNavigation(
 			.presentAndPush(sceneName: "AstraAuthentication.SignIn", parameters: nil),
+			animated: true,
+			completion: nil
+		)
+	}
+	
+	func navigateToSignUp() {
+		performNavigation(
+			.presentAndPush(sceneName: "AstraAuthentication.SignUp", parameters: nil),
 			animated: true,
 			completion: nil
 		)

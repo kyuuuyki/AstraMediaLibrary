@@ -25,7 +25,7 @@ struct MediaListWorker: MediaListWorkerProtocol {
 		page: Int,
 		completion: @escaping (Result<[MediaLibraryItemProtocol], Error>) -> Void
 	) {
-		mediaLibraryService.search(keyword: keyword, page: page) { result in
+		mediaLibraryService.getMediaListByKeyword(keyword: keyword, page: page) { result in
 			switch result {
 			case .success(let items):
 				completion(.success(items.sorted(by: { $0.createdAt > $1.createdAt })))

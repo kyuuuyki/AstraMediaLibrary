@@ -88,6 +88,8 @@ extension MainViewController {
 	func displaySessionStatus(viewModel: MainModel.SessionStatus.ViewModel) {
 		if viewModel.shouldDisplaySignIn {
 			router?.navigateToSignIn()
+		} else if viewModel.shouldDisplaySignUp {
+			router?.navigateToSignUp()
 		}
 		
 		fetchData()

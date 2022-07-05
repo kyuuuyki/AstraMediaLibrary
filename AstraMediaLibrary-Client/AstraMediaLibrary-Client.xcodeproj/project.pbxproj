@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5199EFD28747A0D00F299A3 /* AstraCoreAPI in Frameworks */ = {isa = PBXBuildFile; productRef = C5199EFC28747A0D00F299A3 /* AstraCoreAPI */; };
+		C575D6DB287345F30086E8F6 /* Assembler+MediaLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C575D6DA287345F30086E8F6 /* Assembler+MediaLibrary.swift */; };
 		C5D266D72860B1D200182E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5D266D52860B1D200182E98 /* Main.storyboard */; };
 		C5D266DC2860B1D600182E98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5D266DA2860B1D600182E98 /* LaunchScreen.storyboard */; };
 		C5D266EE2860B2BA00182E98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D266E72860B2B900182E98 /* SceneDelegate.swift */; };
@@ -15,10 +17,10 @@
 		C5D266F22860B2BA00182E98 /* TransitionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D266EC2860B2BA00182E98 /* TransitionCoordinator.swift */; };
 		C5D266F32860B2BA00182E98 /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D266ED2860B2BA00182E98 /* Assembler.swift */; };
 		C5D266F62860B3D300182E98 /* AstraMediaLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = C5D266F52860B3D300182E98 /* AstraMediaLibrary */; };
-		C5D266F92860B5FD00182E98 /* AstraCoreAPI in Frameworks */ = {isa = PBXBuildFile; productRef = C5D266F82860B5FD00182E98 /* AstraCoreAPI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C575D6DA287345F30086E8F6 /* Assembler+MediaLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembler+MediaLibrary.swift"; sourceTree = "<group>"; };
 		C5D266CC2860B1D200182E98 /* AstraMediaLibrary-Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AstraMediaLibrary-Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D266D62860B1D200182E98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C5D266DB2860B1D600182E98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5D266F92860B5FD00182E98 /* AstraCoreAPI in Frameworks */,
+				C5199EFD28747A0D00F299A3 /* AstraCoreAPI in Frameworks */,
 				C5D266F62860B3D300182E98 /* AstraMediaLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,13 +46,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C537ED7E2862114B000E4F09 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		C5D266C32860B1D200182E98 = {
 			isa = PBXGroup;
 			children = (
@@ -72,7 +67,6 @@
 		C5D266CE2860B1D200182E98 /* AstraMediaLibrary-Client */ = {
 			isa = PBXGroup;
 			children = (
-				C537ED7E2862114B000E4F09 /* New Group */,
 				C5D266EA2860B2BA00182E98 /* AppDelegate.swift */,
 				C5D266EB2860B2BA00182E98 /* Assembler */,
 				C5D266E72860B2B900182E98 /* SceneDelegate.swift */,
@@ -97,6 +91,7 @@
 			children = (
 				C5D266EC2860B2BA00182E98 /* TransitionCoordinator.swift */,
 				C5D266ED2860B2BA00182E98 /* Assembler.swift */,
+				C575D6DA287345F30086E8F6 /* Assembler+MediaLibrary.swift */,
 			);
 			path = Assembler;
 			sourceTree = "<group>";
@@ -127,7 +122,7 @@
 			name = "AstraMediaLibrary-Client";
 			packageProductDependencies = (
 				C5D266F52860B3D300182E98 /* AstraMediaLibrary */,
-				C5D266F82860B5FD00182E98 /* AstraCoreAPI */,
+				C5199EFC28747A0D00F299A3 /* AstraCoreAPI */,
 			);
 			productName = "AstraMediaLibrary-Client";
 			productReference = C5D266CC2860B1D200182E98 /* AstraMediaLibrary-Client.app */;
@@ -159,7 +154,7 @@
 			);
 			mainGroup = C5D266C32860B1D200182E98;
 			packageReferences = (
-				C5D266F72860B5FD00182E98 /* XCRemoteSwiftPackageReference "AstraCoreAPI" */,
+				C5199EFB28747A0D00F299A3 /* XCRemoteSwiftPackageReference "AstraCoreAPI" */,
 			);
 			productRefGroup = C5D266CD2860B1D200182E98 /* Products */;
 			projectDirPath = "";
@@ -213,6 +208,7 @@
 				C5D266F32860B2BA00182E98 /* Assembler.swift in Sources */,
 				C5D266F02860B2BA00182E98 /* ViewController.swift in Sources */,
 				C5D266EE2860B2BA00182E98 /* SceneDelegate.swift in Sources */,
+				C575D6DB287345F30086E8F6 /* Assembler+MediaLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +437,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C5D266F72860B5FD00182E98 /* XCRemoteSwiftPackageReference "AstraCoreAPI" */ = {
+		C5199EFB28747A0D00F299A3 /* XCRemoteSwiftPackageReference "AstraCoreAPI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kyuuuyki/AstraCoreAPI.git";
 			requirement = {
@@ -452,14 +448,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C5199EFC28747A0D00F299A3 /* AstraCoreAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5199EFB28747A0D00F299A3 /* XCRemoteSwiftPackageReference "AstraCoreAPI" */;
+			productName = AstraCoreAPI;
+		};
 		C5D266F52860B3D300182E98 /* AstraMediaLibrary */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AstraMediaLibrary;
-		};
-		C5D266F82860B5FD00182E98 /* AstraCoreAPI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C5D266F72860B5FD00182E98 /* XCRemoteSwiftPackageReference "AstraCoreAPI" */;
-			productName = AstraCoreAPI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

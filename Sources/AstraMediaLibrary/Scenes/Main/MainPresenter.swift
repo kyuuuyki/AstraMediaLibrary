@@ -25,7 +25,10 @@ struct MainPresenter: MainPresenterProtocol {
 // MARK: - SESSION STATUS
 extension MainPresenter {
 	func presentSessionStatus(response: MainModel.SessionStatus.Response) {
-		let viewModel = MainModel.SessionStatus.ViewModel(shouldDisplaySignIn: !response.isSignedIn)
+		let viewModel = MainModel.SessionStatus.ViewModel(
+			shouldDisplaySignIn: response.isSignInNeeded,
+			shouldDisplaySignUp: response.isSignUpNeeded
+		)
 		viewController?.displaySessionStatus(viewModel: viewModel)
 	}
 }
